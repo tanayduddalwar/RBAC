@@ -161,24 +161,26 @@ Users can log in using their **Google account** via OAuth 2.0. After successful 
 Below is the updated directory structure for the project:
 
 ```
-.
+## **Code Structure**
+
+Below is the updated directory structure for the project:
+
+```
 ├── controllers/
 │   ├── authController.js   # Handles registration, login, and Google login
-│   ├── loginController.js  # Logic for logging in users with JWT authentication
-│   ├── registerController.js  # Handles user registration and role assignment
 ├── models/
 │   ├── user.js             # Mongoose User schema
 ├── routes/
 │   ├── authRoutes.js       # Defines authentication routes (login, register, etc.)
-│   ├── googleAuthRoutes.js # Routes for Google OAuth authentication (callback and failure)
 ├── middlewares/
 │   ├── checkAuth.js        # Middleware for JWT authentication and role-based authorization
-│   ├── isLoggedIn.js       # Custom middleware to check if the user is logged in
-│   ├── authorize.js        # Middleware to check if the user has the correct role to access a route
 ├── passport.js             # Passport configuration for Google OAuth
 ├── .env                    # Environment variables (Google credentials, JWT secret, etc.)
-├── index.js                # Main entry point for Express server setup and DB connection
+├── index.js                # Main entry point (server setup)
 └── package.json            # Node.js package manager file for dependencies and scripts
+```
+
+
 ```
 
 ---
