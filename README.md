@@ -165,7 +165,7 @@ Below is the updated directory structure for the project:
 
 Below is the updated directory structure for the project:
 
-```
+
 ├── controllers/
 │   ├── authController.js   # Handles registration, login, and Google login
 ├── models/
@@ -178,7 +178,7 @@ Below is the updated directory structure for the project:
 ├── .env                    # Environment variables (Google credentials, JWT secret, etc.)
 ├── index.js                # Main entry point (server setup)
 └── package.json            # Node.js package manager file for dependencies and scripts
-```
+
 
 
 
