@@ -88,7 +88,6 @@ Users can register with a username and password. Passwords are securely hashed u
 
 - **POST /api/register**: Registers a new user.
 
-Example Request Body:
 
 ```json
 {
