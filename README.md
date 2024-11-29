@@ -27,7 +27,6 @@ This project implements a secure **authentication** and **authorization** system
 5. [Code Structure](#code-structure)
 6. [Role-Based Access Control Diagram](#role-based-access-control-diagram)
 
-
 ---
 
 ## **Installation**
@@ -43,9 +42,6 @@ git clone https://github.com/tanayduddalwar/RBAC.git
 ```bash
 npm install
 ```
-
-
----
 
 ### 3. **Set Up Environment Variables**
 
@@ -65,8 +61,6 @@ npm install
    GOOGLE_CLIENT_SECRET=your-google-client-secret
    MONGO_URI=mongodb://localhost:27017/your-database-name
    ```
----
-
 
 ### 4. **Start the Application**
 
@@ -88,7 +82,6 @@ Users can register with a username and password. Passwords are securely hashed u
 
 - **POST /api/register**: Registers a new user.
 
-
 ```json
 {
   "username": "testuser",
@@ -105,12 +98,13 @@ Users can log in by providing their username and password. Upon successful login
 
 - **POST /api/login**: Logs in a user and returns a JWT token.
 
-  ```json
+```json
 {
   "username": "testuser",
-  "password": "testpassword123",
+  "password": "testpassword123"
 }
 ```
+
 - **GET /api/logout**: Logs out the user and ends the session.
 
 ### **Role-Based Access Control (RBAC)**
@@ -118,7 +112,7 @@ Users can log in by providing their username and password. Upon successful login
 The system uses **Role-Based Access Control (RBAC)** to manage user access to different API routes. Each user is assigned one of the following roles:
 
 - **Admin**: Limited access (can only access `/admin` route).
-- **Moderator**: LLimited access (can only access `/moderator` route).
+- **Moderator**: Limited access (can only access `/moderator` route).
 - **User**: Limited access (can only access `/user` route).
 
 #### Protected Routes:
@@ -215,14 +209,7 @@ Below is a visual representation of the **Role-Based Access Control (RBAC)** sys
 
 ---
 
-
----
-
 ### **Conclusion**
 
 This project demonstrates the implementation of a secure authentication system with **Google OAuth** and **JWT tokens**. It also uses **Role-Based Access Control (RBAC)** to manage user permissions effectively. The solution is designed to be flexible, allowing the addition of more roles and custom authorization logic as needed.
-
 ```
-
----
-
