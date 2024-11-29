@@ -181,7 +181,6 @@ Below is the updated directory structure for the project:
 ```
 
 
-```
 
 ---
 
