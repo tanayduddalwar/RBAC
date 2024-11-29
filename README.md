@@ -26,7 +26,7 @@ This project implements a secure **authentication** and **authorization** system
 4. [Security Best Practices](#security-best-practices)
 5. [Code Structure](#code-structure)
 6. [Role-Based Access Control Diagram](#role-based-access-control-diagram)
-7. [License](#license)
+
 
 ---
 
@@ -35,8 +35,7 @@ This project implements a secure **authentication** and **authorization** system
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/role-based-authentication.git
-cd role-based-authentication
+git clone https://github.com/tanayduddalwar/role-based-authentication.git
 ```
 
 ### 2. **Install Dependencies**
@@ -45,25 +44,34 @@ cd role-based-authentication
 npm install
 ```
 
+
+---
+
 ### 3. **Set Up Environment Variables**
 
-Create a `.env` file in the root directory and add the following environment variables. If you don’t have the environment file, please [copy this `.env` file from here](<INSERT_YOUR_GOOGLE_DRIVE_LINK_HERE>).
+1. **Download the `.env` File:**
+   - The `.env` file containing the necessary environment variables can be downloaded from the following link:  
+     [Download `.env` file](https://drive.google.com/file/d/1rHbY3QFnvW2-lOXbHCSJEizSYE_YF7tY/view?usp=drive_link)
 
-Example `.env` file:
+2. **Place the `.env` File in the Root Directory:**
+   - After downloading, place the `.env` file in the **root directory** of the project (the same location as `package.json` or the main application file).
 
-```
-JWT_SECRET=your-jwt-secret-key
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-MONGO_URI=mongodb://localhost:27017/your-database-name
-```
+3. **Environment Variables to Configure:**
+   Ensure the `.env` file contains the following variables:
 
-Replace `your-jwt-secret-key`, `your-google-client-id`, and `your-google-client-secret` with your actual credentials.
+   ```plaintext
+   JWT_SECRET=your-jwt-secret-key
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   MONGO_URI=mongodb://localhost:27017/your-database-name
+   ```
+---
+
 
 ### 4. **Start the Application**
 
 ```bash
-npm start
+node index.js
 ```
 
 The server will start on `http://localhost:5000`.
@@ -97,14 +105,21 @@ Users can log in by providing their username and password. Upon successful login
 **API Endpoints:**
 
 - **POST /api/login**: Logs in a user and returns a JWT token.
+
+  ```json
+{
+  "username": "testuser",
+  "password": "testpassword123",
+}
+```
 - **GET /api/logout**: Logs out the user and ends the session.
 
 ### **Role-Based Access Control (RBAC)**
 
 The system uses **Role-Based Access Control (RBAC)** to manage user access to different API routes. Each user is assigned one of the following roles:
 
-- **Admin**: Full access to `/admin` routes.
-- **Moderator**: Limited access (can access `/moderator` and `/user` routes).
+- **Admin**: Limited access (can only access `/admin` route).
+- **Moderator**: LLimited access (can only access `/moderator` route).
 - **User**: Limited access (can only access `/user` route).
 
 #### Protected Routes:
@@ -118,7 +133,7 @@ The system uses **Role-Based Access Control (RBAC)** to manage user access to di
 | Role      | `/api/admin` | `/api/moderator` | `/api/user` |
 |-----------|--------------|------------------|-------------|
 | **Admin** | Yes          | No               | No          |
-| **Moderator** | No       | Yes              | Yes         |
+| **Moderator** | No       | Yes              | No          |
 | **User**   | No          | No               | Yes         |
 
 The system uses **JWT tokens** to verify the user's role and ensure that they have the correct permissions to access specific routes.
@@ -161,11 +176,6 @@ Users can log in using their **Google account** via OAuth 2.0. After successful 
 Below is the updated directory structure for the project:
 
 ```
-## **Code Structure**
-
-Below is the updated directory structure for the project:
-
-
 ├── controllers/
 │   ├── authController.js   # Handles registration, login, and Google login
 ├── models/
@@ -178,9 +188,7 @@ Below is the updated directory structure for the project:
 ├── .env                    # Environment variables (Google credentials, JWT secret, etc.)
 ├── index.js                # Main entry point (server setup)
 └── package.json            # Node.js package manager file for dependencies and scripts
-
-
-
+```
 
 ---
 
@@ -193,24 +201,21 @@ Below is a visual representation of the **Role-Based Access Control (RBAC)** sys
             |        Admin             |             |        Moderator         |             |         User             |
             |  (Access to /admin)      |             |  (Access to /moderator)  |             |  (Access to /user)      |
             +-------------------------+             +-------------------------+             +-------------------------+
-                     |                                    |                                      |
-                     v                                    v                                      v
-           +---------------------------+    +----------------------------+         +---------------------------+
-           | Access to /admin route    |    | Access to /moderator route |         | Access to /user route     |
-           | and all other routes      |    | and /user route            |         |                           |
-           +---------------------------+    +----------------------------+         +---------------------------+
+                     |                                          |                                      |
+                     v                                          v                                      v
+           +---------------------------+             +----------------------------+         +---------------------------+
+           | Access to /admin route    |             | Access to /moderator route |         | Access to /user route     |
+           |                           |             |                            |         |                           |
+           +---------------------------+             +----------------------------+         +---------------------------+
 
 ```
 
-- **Admin**: Has access to **all** routes, including `/admin`, `/moderator`, and `/user`.
-- **Moderator**: Has access to `/moderator` and `/user` routes only.
-- **User**: Has access only to `/user` route.
+- **Admin**: Has access only to `/admin` route only.
+- **Moderator**:  Has access only to `/moderator` route only.
+- **User**: Has access only to `/user` route only.
 
 ---
 
-## **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -218,4 +223,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project demonstrates the implementation of a secure authentication system with **Google OAuth** and **JWT tokens**. It also uses **Role-Based Access Control (RBAC)** to manage user permissions effectively. The solution is designed to be flexible, allowing the addition of more roles and custom authorization logic as needed.
 
-This README provides a comprehensive guide to understanding, setting up, and extending the project. Let me know if
+```
+
+---
+
