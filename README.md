@@ -35,7 +35,7 @@ This project implements a secure **authentication** and **authorization** system
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/tanayduddalwar/role-based-authentication.git
+git clone https://github.com/tanayduddalwar/RBAC.git
 ```
 
 ### 2. **Install Dependencies**
